@@ -1,0 +1,342 @@
+body{
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: cursive;
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+    background-color: rgb(245, 239, 230); 
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* main container */
+.container{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: space-between;
+	align-content: stretch;
+}
+.containerBox1{
+    flex: 1;
+    order: 1;
+    width: 50px;
+    height: 50px; 
+    margin-bottom: 10%;    
+}
+.containerBox2{
+    flex: 1;
+    order: 2;    
+}
+.containerBox3{
+    flex: 1;
+    order: 3;
+}
+.containerBox4{
+    flex: 1;
+    order: 4;    
+}
+
+/* head */
+#headerVideo{
+    width: auto;
+    height: auto; 
+    overflow: hidden;
+    object-fit: fill;
+    object-fit:cover; 
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+#navMenu{
+    padding-left: 5%;
+    margin-top: 5%;
+    position: absolute;
+    left: 40%;
+}
+#navMenu ul{
+    list-style-type:none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#navMenu li{
+    display: inline;
+}
+#navMenu a{
+    text-decoration: none;
+    font-size: 24px;
+    color: rgb(253, 225, 190);
+    font-weight: bolder;
+    cursor: pointer;
+    padding-left: 25px;
+}
+#navMenu a:hover{
+    transition: all 0.5s linear;
+    text-decoration: underline;
+    text-decoration-color: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
+}
+#headContent{
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: 10%;
+    position: absolute;
+    left: 8%;
+    background-color: black;
+    color: rgb(253, 225, 190);
+    font-size: 29px;
+    font-weight: bolder;
+    text-align: center;
+    opacity: 0.6;
+    border-radius: 5%;
+    cursor: pointer;
+}
+#headContent p:hover{
+    color: rgb(255, 0, 0);
+    transition: all 0.4s ease;
+    animation-name: headContentShake;
+    animation-duration: 2s;
+}
+@keyframes headContentShake {
+    10%, 90% {
+      transform: translate3d(-3px, 0, 0);
+    }
+    
+    15%, 80% {
+      transform: translate3d(3px, 0, 0);
+    }
+  
+    25%, 35%, 45%, 55%, 65%, 75% {
+      transform: translate3d(-5px, 0, 0);
+    }
+  
+    30%, 40%, 50%, 60%, 70% {
+      transform: translate3d(5px, 0, 0);
+    }
+  }
+
+#headContent2{
+    left: 35%;
+    top: 55%;
+    position: absolute;
+    color: rgb(253, 225, 190);
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+    cursor: default;
+}
+#headContent3 a{
+    text-decoration: none;
+    color: rgb(253, 225, 190);
+    font-size: 29px;
+    font-weight: bolder;
+}
+#headContent3{
+    padding-left: 3%;
+    padding-right: 3%;
+    left: 43%;
+    top: 75%;
+    position: absolute;
+    background-color: black;
+    text-align: center;
+    opacity: 0.6;
+    border-radius: 5%;
+    cursor: pointer;
+    text-decoration: none;
+}
+#headContent3 a:hover{
+    color: rgb(255, 0, 0);
+    border-radius: 20%;
+    transition: all 0.4s ease;
+}
+#headContent3:hover{
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    animation-name: headContentShake;
+    animation-duration: 2s;
+}
+
+
+/* video and more */
+#about{
+    color: rgb(0, 0, 0);
+    
+}
+#videoHeading{
+    text-align: center;
+    color: rgb(112, 57, 18);
+    font:bolder;
+}
+.videoFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: space-between;
+	align-content: stretch;  
+    
+}
+.videoFlexSection1{
+    flex: 1;
+    order: 1;
+}
+.videoFlexSection2{
+    flex: 1;
+    order: 2;
+}
+.videoFlexSection3{
+    flex: 1;
+    order: 3; 
+}
+.videoView{
+    background-color: rgb(226, 229, 231);
+    width: 90%;
+    height:30%;
+    margin: 5%;
+    border-radius: 3%;
+    overflow:hidden;
+}
+.videoViewImg{
+    width: 100px;
+    height: 150px;
+    border-radius: 3% 3% 0 0;
+    overflow: hidden;
+    position: relative;
+}
+.videoViewImg img{
+    width: 100px;
+    height: 150px;
+    border-radius: 3% 3% 0 0;
+    overflow: hidden;
+    position: relative;
+}
+.videoViewImg img:hover{
+    overflow: hidden;
+    transform: scale(1.5);
+}
+.videoPlayer a{
+    font-size: 6rem;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+    font-weight: bolder;
+    position: absolute;
+    color: red;   
+    top: 20%;
+    left: 40%;    
+    opacity: 0;
+}
+.videoView p{
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 5%;
+    text-align: justify;
+    color: rgb(11, 13, 14);
+    overflow: hidden;
+}
+.videoView h2{
+    color: blue;
+    text-align: center;
+}
+#videoMenu{
+    padding-bottom: 3%;
+}
+#videoMenuCategories{
+    color: rgb(112, 57, 18);
+    font-size: 24px;
+    font:bolder;
+    text-decoration: none;
+    cursor:default;
+}
+#videoMenu ul{
+    text-align: center;
+}
+#videoMenu li{
+    display: inline; 
+}
+#videoMenu a{
+    color: rgb(112, 57, 18);
+    font-size: 24px;
+    font:bolder;
+    text-decoration: none;
+    cursor: pointer;
+    padding-left: 5%;
+}
+#videoMenu a:hover{
+    color: rgb(238, 83, 83);
+    font-size: 26px;
+    font-style: italic;
+    font-weight: bolder;
+    text-shadow: 3rem;
+    text-decoration: underline;
+    text-decoration-color: black;
+    transition: all 0.5s linear;
+    overflow: hidden;
+}
+
+
+/* contact  */
+#contact{
+    color: rgb(0, 0, 0);
+}
+.contactContainer{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    align-items: space-between;
+    margin: 3%;
+       
+}
+.contactContainerAll{
+    background-color:rgb(226, 229, 231);        
+    width: 50px;
+    height: 50px;
+    margin: 2%;
+    border-radius: 5%;
+    overflow:hidden;
+    color: black;
+    align-self: center;
+    align-content: center;
+    text-align: left;
+    font-weight: bold;
+    padding: 3%;
+}
+.contactContainerAll h3{
+    margin: 10px;
+    align-self: center;
+    align-content: center;
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+}
+.contactContainer1{
+    flex: 1;
+    order: 1;
+     
+}
+.contactContainer2{
+    flex: 1;
+    order: 2;
+
+}
+.contactContainer3{
+    flex: 1;
+    order: 3;
+}
+
+
+/* footer */
+#footer{
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: center;
+    background-color: rgb(170, 209, 235);   
+    width: 100%;
+    height: 10%;
+    left: 0%;
+    bottom: 3%;
+   
+}

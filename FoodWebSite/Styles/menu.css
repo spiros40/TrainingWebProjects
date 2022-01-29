@@ -1,0 +1,35 @@
+/* parallax effect*/
+.pic1{
+    background-image: url("../Photos/menu/3.jpg");
+}
+.pic2{
+    background-image: url("../Photos/menu/2.jpg");
+}
+.pic3{
+    background-image: url("../Photos/menu/1.jpg");    
+}
+.pic4{
+    background-image: url("../Photos/menu/7.jpg");
+}
+
+.menu_text{
+    padding: 0% 0% 8% 0%;
+}
+
+.menu_text p{
+    text-align: center;
+}
+
+.menu_text .headText{
+    font-size: 23px;
+    text-decoration: underline;
+}
+
+
+@media (max-width:700px){
+    
+    .menu_text .headText{
+        font-size: 16px;
+    }
+    
+} 

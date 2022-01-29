@@ -1,0 +1,213 @@
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    padding: 0% 3% 0% 3%;
+    background-image: url("../Photos/background.jpg");
+    background-repeat:repeat;
+    height: 100%;
+}
+
+/* Menu style */
+nav{        
+    padding: 1%;
+    margin: 1%;
+    list-style: none;
+    display: inline;
+    
+}
+
+nav ul{
+    list-style: none;    
+    text-align: center;    
+    background-image: url("../Photos/background.jpg");
+    filter:contrast(50%);
+    width: 98%;
+    height: 45px;
+    border-radius: 15px;
+}
+
+li{
+    display:inline;
+    
+}
+
+nav li a{
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    color: goldenrod;
+    text-shadow: 0px 1px 0px rgb(248, 226, 31), 0px 2px 0px rgb(245, 223, 102), 
+    0px 3px 0px rgb(241, 219, 16), 0px 2px 0px rgb(241, 226, 6), 0px 3px 0px rgb(185, 182, 6), 0px 5px 0px rgb(131, 102, 5), 0px 5px 0px rgb(197, 194, 4), 0px 6px 4px #c2a60a;
+    margin: 0.5%;
+    padding: 0.5% 2% 0.5% 2%;
+    text-decoration: none;
+    top: 22%;
+    bottom: 22%;    
+}
+
+nav li a::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: all 0.25s ease-in-out;
+
+
+}
+
+nav li a::after{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: all 0.25s ease-in-out;
+}
+
+nav li a:hover::after, nav li a:hover::before{
+    width: 100%;
+    left: 0%;
+    box-shadow: 0px 1px 0px rgb(153, 153, 153), 0px 2px 0px #888, 
+    0px 1px 0px #777, 0px 2px 0px #666, 0px 2px 0px #555, 0px 3px 0px #444, 0px 3px 0px #333, 0px 4px 3px #351300;
+
+}
+
+/* parallax effect*/
+.parallax{
+    height: 300px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    color:gold;
+    font-size: 70px;
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 0px 1px 0px rgb(153, 153, 153), 0px 2px 0px #888, 
+    0px 1px 0px #777, 0px 2px 0px #666, 0px 2px 0px #555, 0px 3px 0px #444, 0px 3px 0px #333, 0px 4px 3px #351300;
+    text-decoration: underline;
+    padding-top: 20%;
+}
+
+.img1{
+    background-image: url("../Photos/slidePhotos/1.jpg");
+}
+.img2{
+    background-image: url("../Photos/slidePhotos/2.jpg");
+}
+.img3{
+    background-image: url("../Photos/slidePhotos/3.jpg");    
+}
+.img4{
+    background-image: url("../Photos/slidePhotos/4.jpg");
+}
+
+/* text style */
+p{
+    text-align: justify;
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    width: 80%;
+    padding:  0% 10% 0% 10%;
+    /* copy protect */
+    cursor:context-menu;
+    user-select: none;
+
+}
+
+/* footer */
+footer{
+    font-size: 14px;
+    color: white;
+    width: 90%;
+    bottom: 2%;
+    justify-content: center;
+    text-align: center;
+    padding: 4% 0% 0% 0%;
+}
+
+footer a{
+    color: white;
+    font-size: 15px;
+    text-decoration:none;
+}
+
+@media (max-width:700px){
+    
+    body{
+        padding: 0%;
+    }
+
+    nav{        
+        padding: 0%;
+        margin: 0%;
+    }
+
+    nav ul{
+        text-align: left; 
+        height: 25px;
+        border-radius: 5px;
+        width: 85%;
+
+    }
+    
+    nav li a{
+        font-size: 10px;  
+        margin: 0%;
+        padding: 0%;
+        text-decoration: none;
+        top: 1%;
+        bottom: 1%;            
+    }
+    
+    nav li a::before{
+        top: 0%;
+        left: 0%;
+        width: 0%;
+        height: 1px;
+    }
+    
+    nav li a::after{
+        bottom: 0%;
+        left: 0%;
+        width: 0%;
+        height: 1px;
+    }
+    
+    nav li a:hover::after, nav li a:hover::before{
+        width: 100%;
+        left: 0%;
+        box-shadow: 0px 1px 0px rgb(153, 153, 153), 0px 0.5px 0px #888, 
+        0px 0.5px 0px #777, 0px 0.5px 0px #666, 0px 0.5px 0px #555, 0px 1px 0px #444, 0px 1px 0px #333, 0px 1px 1px #351300;
+    }
+
+    .parallax{
+        height: 150px;
+        border-radius: 4px;
+        font-size: 30px;
+        padding-top: 20%;
+
+    }
+    
+    p{
+        font-size: 10px;
+        width: 80%;
+        padding:  0% 8% 0% 8%;
+    }
+
+    footer{
+        font-size: 8px;
+    }
+} 
