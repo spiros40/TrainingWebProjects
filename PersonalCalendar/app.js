@@ -20,25 +20,19 @@ const readText=require(__dirname+"/modules/readFromFile.js")
 
 app.get("/",(req,res)=>{
     let textfromfile=readText.readFromFile("text1.txt");
-    
     res.render("main",{title:"Home",text:textfromfile});
 });
 app.get("/about",(req,res)=>{
-    let textfromfile=readText.readFromFile("text1.txt");
-    
+    let textfromfile=readText.readFromFile("text1.txt"); 
     res.render("main",{title:"About",text:textfromfile});
 });
 app.get("/contactUs",(req,res)=>{
     let textfromfile=readText.readFromFile("text1.txt");
-    
     res.render("main",{title:"Contact us",text:textfromfile});
 });
-app.get("/compose",(req,res)=>{
-        
+app.get("/compose",(req,res)=>{ 
     res.render("main",{title:"Compose",text:textfromfile});
 });
-
-
 
 app.listen(PORT,()=>{
     console.log(`Server is running at http://localhost:${PORT}`);
