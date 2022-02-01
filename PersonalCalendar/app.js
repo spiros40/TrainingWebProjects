@@ -27,11 +27,12 @@ app.get("/about",(req,res)=>{
     res.render("main",{title:"About",text:textfromfile});
 });
 app.get("/contactUs",(req,res)=>{
-    let textfromfile=readText.readFromFile("text1.txt");
+    let textfromfile=readText.readFromFile("text3.txt");
     res.render("main",{title:"Contact us",text:textfromfile});
 });
 app.get("/compose",(req,res)=>{ 
-    res.render("main",{title:"Compose",text:textfromfile});
+    let textfromfile=readText.readFromFile("text4.txt");
+    res.render("main",{title:"Compose new content",text:textfromfile});
 });
 
 app.listen(PORT,()=>{
