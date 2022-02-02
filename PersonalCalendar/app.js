@@ -32,7 +32,9 @@ app.get("/contactUs",(req,res)=>{
 });
 app.get("/compose",(req,res)=>{ 
     let textfromfile=readText.readFromFile("text4.txt");
-    res.render("main",{title:"Compose new content",text:textfromfile});
+    pageToCall= "C:/Users/spiro/Desktop/programms/TrainingWebProjects/PersonalCalendar/views/compose.ejs";
+    
+    res.render("main",{title:"Compose new content",text:textfromfile, pageCall:pageToCall });
 });
 
 app.listen(PORT,()=>{
