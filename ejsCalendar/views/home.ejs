@@ -3,8 +3,10 @@
 
 <h1>Home</h1>
 
-<% for(let content of content){%> 
-<p><%= content[i] %> </p>
-<% } %> 
+<% contents_array.forEach(function (Eachcontent){ %>
+  <p><%= Eachcontent.title %> </p>
+  <p><%= Eachcontent.content %> </p>
+<%}); %> 
+
 
 <%- include("partials/footer.ejs"); %> 
