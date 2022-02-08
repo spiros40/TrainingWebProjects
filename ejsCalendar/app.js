@@ -1,8 +1,11 @@
 //jshint esversion:6
 
 const express = require("express");
+//parses objects
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+//utility library
+const lodash=require("lodash");
 const PORT=3000;
 let contentArray=[];
 const tempArray=[{title:"Nothing to view." , content:"There in nothing here go to compose page and enter!!"}];
@@ -22,9 +25,6 @@ app.get("/",(req,res)=>{
   if(contentArray.length>0){
       res.render("home",{contents_array:contentArray});
     }else{res.render("home",{contents_array:tempArray});}
-  
-  
-
 });
 
 app.get("/about",(req,res)=>{
@@ -44,6 +44,14 @@ app.post('/compose',(req,res)=>{
   contentArray.push(content);  
 });
 
+app.get("/posts/:postID",(req,res)=>{
+  contentArray.forEach(element => {
+    if(lodash.lowerCase(element.title)===lodash.lowerCase(req.params.postID)){
+      res.render("post",{con_title:element.title, con_content:element.content});
+    }//else{res.redirect("/");}
+  });
+  
+});
 
 
 
