@@ -77,6 +77,20 @@ app.post("/",(req,res)=>{
     res.redirect("/");
 });
 
+app.post("/delete",(req,res)=>{
+    let itemToDelete=req.body.checkbox;
+    
+    Item.findByIdAndRemove(itemToDelete,(error)=>{    
+                if(error){
+                    console.log(error);
+                }else{
+                    console.log("Deleted succesfully")
+                }
+            });
+            
+    res.redirect("/");        
+});
+
 app.listen(PORT,()=>{
     console.log(`Server is running at http://localhost:${PORT}`);
     
