@@ -7,6 +7,7 @@ const PORT = 3000;
 
 mongose.connect("mongodb://localhost:27017/toDoListDB");
 
+//item schema
 const itemsSchema=new mongose.Schema({
     name:{
        type:String,
@@ -14,6 +15,13 @@ const itemsSchema=new mongose.Schema({
     }
 });
 const Item=new mongoose.model("Item",itemsSchema);
+
+//list schema
+const listSchema=new mongoose.Schema ({
+    name:String,
+    items:[itemsSchema]
+});
+const List= new mongoose.model("List",listSchema);
 
 const app=express();
 app.use(express.static("public"));
@@ -23,7 +31,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 const item1=new Item({
-    name:"Buy food"
+    name:"Buy nice food"
 });
 const item2=new Item({
     name:"Cook food"
@@ -57,25 +65,53 @@ app.get("/",(req, res)=>{
    });
 });
 
-app.get("/work",(req,res)=>{    
-    res.render( 'list', {listTitle:"Work List",newItemList:workItems, postTo:"/work"});
+// app.get("/work",(req,res)=>{    
+//     res.render( 'list', {listTitle:"Work List",newItemList:workItems, postTo:"/work"});
+// });
+
+//dynamic express route
+app.get("/:listId",(req,res)=>{
+    let listName=req.params.listId;
+    List.findOne({name:listName},(error,result)=>{
+        if(!error){            
+            if(!result){
+                    const list=new List({
+                    name:listName,
+                    items:itemArray
+                });
+                list.save();
+                console.log("The list stored.");
+            }else{       
+                Item.find({},(error,listitems)=>{
+                    res.render('list',{listTitle: listName, newItemList:listitems, postTo:"/" + listName});
+                    console.log("The list exist!!");
+                   });
+            }                             
+        }else{console.log(error);}
+    });
+    
+    //res.redirect("/" + listName);  
 });
 
-app.post("/work",(req,res)=>{
-    let item=req.body.newitem;
-    workItems.push(item);
-    res.redirect("/work");
-})
+// app.post("/work",(req,res)=>{
+//     let item=req.body.newitem;
+//     workItems.push(item);
+//     res.redirect("/work");
+// })
 
 //adds a new todo item to database
 app.post("/",(req,res)=>{
     let itemName=req.body.newitem;
+    const listName=req.body.list;
+
     itemName=new Item({
         name:itemName
      });
     itemName.save();
-    res.redirect("/");
+    
+    res.redirect("/"+listName);
 });
+
 
 app.post("/delete",(req,res)=>{
     let itemToDelete=req.body.checkbox;
