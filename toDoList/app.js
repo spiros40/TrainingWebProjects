@@ -29,7 +29,7 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-
+//template content
 const item1=new Item({
     name:"Buy nice food"
 });

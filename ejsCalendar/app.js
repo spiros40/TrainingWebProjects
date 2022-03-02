@@ -1,16 +1,34 @@
 //jshint esversion:6
 
 const express = require("express");
+//const mongose=require("mongoose");
+const { default: mongoose } = require("mongoose");
 //parses objects
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 //utility library
 const lodash=require("lodash");
 const PORT=3000;
+//connect or create DB
+mongoose.connect("mongodb://localhost:27017/ejsCalendarDB");
+
+//schema
+const PostedSchema=new mongoose.Schema({
+    title:{
+      type:String,
+      required:[true, "Be carefull title is required!!"]
+    },
+    content:{
+      type:String,
+      required:[true, "Be carefull content is required!!"]
+    }
+});
+
+const PostedContent=new mongoose.model("PostedContent",PostedSchema);
+
 let contentArray=[];
 const tempArray=[{title:"Nothing to view." , content:"There in nothing here go to compose page and enter!!"}];
 
-const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
@@ -22,9 +40,11 @@ app.use(express.static("public"));
 
 app.get("/",(req,res)=>{
 
-  if(contentArray.length>0){
-      res.render("home",{contents_array:contentArray});
+  PostedContent.find({},(error,contentItems)=>{
+    if(!error||contentItems===!undefined){
+      res.render("home",{contents_array:contentItems});
     }else{res.render("home",{contents_array:tempArray});}
+  });
 });
 
 app.get("/about",(req,res)=>{
@@ -39,23 +59,25 @@ app.get("/compose",(req,res)=>{
   res.render("compose");
 });
 app.post('/compose',(req,res)=>{
-  let content = { title:req.body.title,content:req.body.content};
-  res.redirect("/");
-  contentArray.push(content);  
-});
-
-app.get("/posts/:postID",(req,res)=>{
-  contentArray.forEach(element => {
-    if(lodash.lowerCase(element.title)===lodash.lowerCase(req.params.postID)){
-      res.render("post",{con_title:element.title, con_content:element.content});
-    }//else{res.redirect("/");}
+  //save new content to DB  
+  newContent=new PostedContent({
+    title:req.body.title,
+    content:req.body.content
   });
-  
+  newContent.save();
+
+  res.redirect("/");
 });
 
-
-
-
+//open the post 
+app.get("/posts/:postID",(req,res)=>{
+  let contentTitle=req.params.postID;
+  PostedContent.findOne({title:contentTitle},(error,findedCOntent)=>{
+    if(!error){
+      res.render("post",{con_title:findedCOntent.title, con_content:findedCOntent.content});
+    }else{res.redirect("/");}
+  });
+});
 
 app.listen(PORT,()=>{
   console.log(`Server is running at http://localhost:${PORT}`);
