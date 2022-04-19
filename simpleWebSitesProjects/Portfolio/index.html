@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Spyros">
+    <meta name="description" content="This is my web project portfolio">
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="web,portfolio, frontend, programming,">
+    <title>My Portfolio</title>
+    <link rel="icon" href="./PhotosFolder/favicon.png">
+    <link rel="stylesheet" href="./StyleFolder/main.css">
+    <link rel="stylesheet" href="./StyleFolder/main1.sass">
+    <script type="text/javascript" src="./ScriptFolder/main.js"></script>
+
+</head>
+<body id="body" onload="heightSize('head')" onresize="heightSize('head')">
+
+  <!-- header section -->
+<header class="gridHead" id="head">
+   <section>
+    <div class="gridHeader1" id="donut" onmouseover="changeMenuPic()" onmouseout="menuReset()" onclick="openMenu()">&#9776;</div>
+    
+    <nav id="menuID" class="menu">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+      <ul>
+        <li><a href="#head" onclick="closeMenu()">Home</a></li>
+        <li><a href="#aboutMe" onclick="closeMenu(); heightSize('aboutMe')">About me</a></li>
+        <li><a href="#myWork" onclick="closeMenu(); heightSize('myWork')">My Work</a></li>
+        <li><a href="#contactForm" onclick="closeMenu(); heightSize('contactForm')">Contact</a></li>        
+      </ul>
+    </nav>
+    
+</section>
+
+  <div class="gridHeader2" id="message">  
+    <h1>Hi, i am  <strong>Spyros</strong></h1>
+    <h1>and this is my webpage!!</h1>
+    
+  </div>
+
+  <div class="gridHeader3" id="imgAboutMe">
+    <a href="#"><img src="./PhotosFolder/AboutMeWhite.png" alt="this is me"></a>
+  </div>
+  
+  <div class="gridHeader4" id="headerFooter">
+    <ul>
+      <li><button>My Work</button></li>
+      <li><a href="#"><img src="./PhotosFolder/LinkedIn.png" alt="LinkedIn"> </a></li>
+      <li><a href="#"><img src="./PhotosFolder/GitHub-Mark-32px.png" alt="GitHub"> </a></li>
+    </ul>
+  </div>
+
+  <div class="gridHeader5">
+    <p><a href="#aboutMe"> &#9660;</a></p>
+  </div>
+
+</header>
+
+<!-- about me section -->
+<section class="aboutMeCon" id="aboutMe" onmouseover="heightSize('aboutMe')" onresize="heightSize('aboutMe')">
+  
+  <div class="aboutMeConpar1" ><p><h2>Some words about me</h2></p></div>
+<div class="aboutMeConpar2"><p>Hi, i am  <strong>Spyros</strong><br><h3>I'm a web developer. I enjoy developing, 
+    clean and slick websites that provide real value to the end user. Thousands of clients 
+    have procured exceptional results while working with me. Delivering work within time and 
+    budget which meets client’s requirements is our moto.</h3></p></div>
+    <div class="aboutMeConpar3"><p><strong>Name</strong><br>Spyros S. </p></div>
+    <div class="aboutMeConpar4"><strong>Name</strong><br>Spyros S. </div>
+    <div class="aboutMeConpar5"><strong>email</strong><br>Spiros40@m</div>
+    <div class="aboutMeConpar6"><strong>GitHub</strong><br><a href="https://github.com/">https://github.com/</a></div>
+    <div class="aboutMeConpar7"><p><a href="#myWork"> &#9660;</a></p></div>
+</section>
+
+<!-- my work section -->
+<section id="myWork" onmouseover="heightSize('myWork')" onresize="heightSize('myWork')">
+  <div id="myWorkTitle"><p>Some of my most recent projects</p></div>
+  <div class="photoCells">
+
+    <div class="photoCell">
+      <img src="./PhotosFolder/test.jpg" alt=""onclick="openPreView('pop0')">
+    </div>
+    <div class="popup" id="pop0">
+      
+      <div class="popupTitle">
+        <p>Food Shop <a href="javascript:void(0)" onclick="closePreView('pop0')">&times;</a></p> 
+      </div>
+     
+      <div class="popupImage">
+        <img src="./PhotosFolder/test.jpg" alt="">
+      </div>
+
+      <div class="popupText">
+        <p><strong>Some word about project:</strong> <br>
+          Quidam lisque persius interesset his et, in quot quidam persequeris vim, 
+          ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam 
+          persequeris vim, ad mea essent possim iriure</p>
+          
+          <div> <strong>Project Details:</strong> <br>
+            <p>Client: Jonn Cena</p> 
+            <p>Industry: Puzzle Game</p>
+            <p>Technologies: HTML5, CSS3, simple DOM javaScript</p>
+            <p>Date: Aug 05, 2020</p>
+            <p>URL: <a href="#">food</a> </p>
+            <p>GitHub URL: <a href="#">Git Site</a></p>
+          </div> 
+             
+      </div>
+    </div>
+    <!-- **************** -->
+    <div class="photoCell">
+      <img src="./PhotosFolder/thesis.jpg" alt=""onclick="openPreView('pop1')">
+    </div>
+    <div class="popup" id="pop1">
+      <div class="popupTitle">
+        <p>Thesis <a href="javascript:void(0)" onclick="closePreView('pop1')">&times;</a></p> 
+      </div>
+     
+      <div class="popupImage">
+        <img src="./PhotosFolder/thesis.jpg" alt="">
+      </div>
+
+      <div class="popupText">
+        <p><strong>Some word about project:</strong> <br>
+          Quidam lisque persius interesset his et, in quot quidam persequeris vim, 
+          ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam 
+          persequeris vim, ad mea essent possim iriure</p>
+          
+          <div> <strong>Project Details:</strong> <br>
+            <p>Client: Jonn Cena</p> 
+            <p>Industry: Puzzle Game</p>
+            <p>Technologies: HTML5, CSS3</p>
+            <p>Date: Aug 05, 2020</p>
+            <p>URL: <a href="#">food</a> </p>
+            <p>GitHub URL: <a href="#">Git Site</a></p>
+          </div> 
+             
+      </div>
+    </div>
+    <!-- **************** -->
+    <div class="photoCell">
+      <img src="./PhotosFolder/shiftView.jpg" alt=""onclick="openPreView('pop2')">
+    </div>
+    <div class="popup" id="pop2">
+      <div class="popupTitle">
+        <p>Shift schedule <a href="javascript:void(0)" onclick="closePreView('pop2')">&times;</a></p> 
+      </div>
+     
+      <div class="popupImage">
+        <img src="./PhotosFolder/shiftView.jpg" alt="">
+      </div>
+
+      <div class="popupText">
+        <p><strong>Some word about project:</strong> <br>
+          Quidam lisque persius interesset his et, in quot quidam persequeris vim, 
+          ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam 
+          persequeris vim, ad mea essent possim iriure</p>
+          
+          <div> <strong>Project Details:</strong> <br>
+            <p>Client: Jonn Cena</p> 
+            <p>Industry: Puzzle Game</p>
+            <p>Technologies: java, javaFX, CSS3</p>
+            <p>Date: Aug 05, 2020</p>
+            <p>GitHub URL: <a href="#">Git Site</a></p>
+          </div> 
+             
+      </div>
+    </div>
+    <!-- **************** -->
+    <div class="photoCell">
+      <img src="./PhotosFolder/test.jpg" alt=""onclick="openPreView('pop3')">
+    </div>
+    <div class="popup" id="pop3">
+      <div class="popupTitle">
+        <p>Food Shop <a href="javascript:void(0)" onclick="closePreView('pop3')">&times;</a></p> 
+      </div>
+     
+      <div class="popupImage">
+        <img src="./PhotosFolder/test.jpg" alt="">
+      </div>
+
+      <div class="popupText">
+        <p><strong>Some word about project:</strong> <br>
+          Quidam lisque persius interesset his et, in quot quidam persequeris vim, 
+          ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam 
+          persequeris vim, ad mea essent possim iriure</p>
+          
+          <div> <strong>Project Details:</strong> <br>
+            <p>Client: Jonn Cena</p> 
+            <p>Industry: Puzzle Game</p>
+            <p>Technologies: HTML5, CSS3, javaScript</p>
+            <p>Date: Aug 05, 2020</p>
+            <p>URL: <a href="#">food</a> </p>
+            <p>GitHub URL: <a href="#">Git Site</a></p>
+          </div> 
+             
+      </div>
+    </div>
+    <!-- **************** -->
+    <div class="photoCell">
+      <img src="./PhotosFolder/test.jpg" alt=""onclick="openPreView('pop4')">
+    </div>
+    <div class="popup" id="pop4">
+      <div class="popupTitle">
+        <p>Food Shop <a href="javascript:void(0)" onclick="closePreView('pop4')">&times;</a></p> 
+      </div>
+     
+      <div class="popupImage">
+        <img src="./PhotosFolder/test.jpg" alt="">
+      </div>
+
+      <div class="popupText">
+        <p><strong>Some word about project:</strong> <br>
+          Quidam lisque persius interesset his et, in quot quidam persequeris vim, 
+          ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam 
+          persequeris vim, ad mea essent possim iriure</p>
+          
+          <div> <strong>Project Details:</strong> <br>
+            <p>Client: Jonn Cena</p> 
+            <p>Industry: Puzzle Game</p>
+            <p>Technologies: HTML5, CSS3, javaScript</p>
+            <p>Date: Aug 05, 2020</p>
+            <p>URL: <a href="#">food</a> </p>
+            <p>GitHub URL: <a href="#">Git Site</a></p>
+          </div> 
+             
+      </div>
+    </div>
+<!-- **************** -->
+    <div class="photoCell">
+      <img src="./PhotosFolder/test.jpg" alt=""onclick="openPreView('pop5')">
+    </div>
+    <div class="popup" id="pop5">
+      <div class="popupTitle">
+        <p>Food Shop <a href="javascript:void(0)" onclick="closePreView('pop5')">&times;</a></p> 
+      </div>
+     
+      <div class="popupImage">
+        <img src="./PhotosFolder/test.jpg" alt="">
+      </div>
+
+      <div class="popupText">
+        <p><strong>Some word about project:</strong> <br>
+          Quidam lisque persius interesset his et, in quot quidam persequeris vim, 
+          ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam 
+          persequeris vim, ad mea essent possim iriure</p>
+          
+          <div> <strong>Project Details:</strong> <br>
+            <p>Client: Jonn Cena</p> 
+            <p>Industry: Puzzle Game</p>
+            <p>Technologies: HTML5, CSS3, javaScript</p>
+            <p>Date: Aug 05, 2020</p>
+            <p>URL: <a href="#">food</a> </p>
+            <p>GitHub URL: <a href="#">Git Site</a></p>
+          </div> 
+             
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- contact form -->
+<section class="contact_form" id="contactForm" onmouseover="heightSize('contactForm')" onresize="heightSize('contactForm')">
+  <div id="contactFormTitle">
+      <p>Contact With Me</p>
+  </div>
+  <div id="contactForm">
+    <form action="">
+      <p><label for="clientName">Name:</label><br>
+      <input type="text" id="clientName"></p>
+      <p><label for="clientEmail">Email:</label><br>
+      <input type="text" id="clientEmail"></p>
+      <p><label for="clientTaxtArea">How can i help you:</label><br>
+      <textarea name="clientTaxtArea" id="clientTaxtArea" cols="30" rows="10"></textarea></p>
+      <input id="contactFormButton" type="button" value="Send">
+    </form>
+  </div>
+</section>
+
+<footer>Copyright &copy; 2021 All rights reserved | <a href="https://www.spifos.com">www.spifos.com</footer>
+  
+</body>
+</html>
