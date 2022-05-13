@@ -4,9 +4,8 @@ import "./ExpenseList.css";
 
 
 const ExpenseList=(props)=>{
-  
   if(props.items.length === 0){
-    return
+    return <h2 className="expenses-list__fallback">Found no expences.</h2>
 
   /*if(props.items.length > 0){
     expenseContent=props.items.map((element) => (
@@ -27,7 +26,6 @@ const ExpenseList=(props)=>{
         /> )}
       )}          */
   }
-
   return(props.items.map((element) => (
     <ExpenseItem     
       key={element.id}    

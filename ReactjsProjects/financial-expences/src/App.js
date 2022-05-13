@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpenseButton from "./components/NewExpense/NewExpenceButton";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 
@@ -33,9 +34,17 @@ function App() {
        return(
        [expense,...prevExpenseState])});
   }
+
+  const [NewExpenseButtonStatus,SetNewExpenseButtonStatus]=useState(false);
+  const NewExpenseButtonClick=(stat)=>{
+      SetNewExpenseButtonStatus(stat);
+    }
+    
+
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler}/>      
+      <NewExpense onAddExpense={addExpenseHandler}/>     
+      <NewExpenseButton onClick={NewExpenseButtonClick}/> 
       <Expenses items={expenses}/>
     </div>
   );
