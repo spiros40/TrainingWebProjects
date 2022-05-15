@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import "./NewExpenseButton.css";
 
 const NewExpenseButton=(props)=>{
-    const ClickHandler=(props)=>{
-
+    
+    const ButtonClicked=()=>{
+        props.onButtonClick();   
     }
-    props.target.ClickHandler(true);
-     console.log(props.onClick);
-
     
     return (<div className="new-expense">
-        <button className="new-expense button" onClick={ClickHandler}> Add New Expence.</button>
+        <button className="new-expense button" onClick={ButtonClicked}> Add New Expence.</button>
     </div>);
 }
 

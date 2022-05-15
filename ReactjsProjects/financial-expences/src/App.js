@@ -29,22 +29,24 @@ const DUMMY_EXPENSES = [
 function App() {  
   const [expenses,setExpenses]=useState(DUMMY_EXPENSES);
 
+  const [NewExpenseButtonStatus,SetNewExpenseButtonStatus]=useState(false);
+  const NewExpenseButtonClick=()=>{
+        SetNewExpenseButtonStatus(true);
+      }
+
   const addExpenseHandler=(expense)=>{
      setExpenses(prevExpenseState=>{
        return(
        [expense,...prevExpenseState])});
+       SetNewExpenseButtonStatus(false);
+
   }
 
-  const [NewExpenseButtonStatus,SetNewExpenseButtonStatus]=useState(false);
-  const NewExpenseButtonClick=(stat)=>{
-      SetNewExpenseButtonStatus(stat);
-    }
-    
 
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler}/>     
-      <NewExpenseButton onClick={NewExpenseButtonClick}/> 
+      {NewExpenseButtonStatus? <NewExpense onAddExpense={addExpenseHandler}/>:
+      <NewExpenseButton onButtonClick={NewExpenseButtonClick}/>}
       <Expenses items={expenses}/>
     </div>
   );

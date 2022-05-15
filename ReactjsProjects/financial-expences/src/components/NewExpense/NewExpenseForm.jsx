@@ -13,11 +13,14 @@ const NewExpenseForm=(props)=>{
     // });
 
     const titleHandler=(event)=>{
+        //event=default browser object, so can take 
+        //value with event.target.value
         setEnteredTitle(event.target.value)
         // setUserInput({
         //     ...userInput,
         //     enteredTitle:event.target.value})
         //best practice is to use a function
+        //or better
         // setUserInput((prevState)=>{
         //     return{...prevState,enteredTitle:event.target.value};})
     }
@@ -40,13 +43,15 @@ const NewExpenseForm=(props)=>{
         //     return{...prevState,enteredTitle:event.target.value};})
     }
     const submitHandler=(event)=>{
+        //stops page to update after submit
         event.preventDefault();
+
         const expenseData ={
             title:enderedTitle,
             amount:enderedAmount,
             date:new Date(enderedDate)
         }
-        //passing data to parent
+        //passing data from parent
         props.onSaveExpenseData(expenseData);
         //After data stored clears the inputs        
         setEnteredTitle('');
@@ -59,6 +64,7 @@ const NewExpenseForm=(props)=>{
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
+                    {/*use value to use it as empty line*/}
                     <input type="text" value={enderedTitle} onChange={titleHandler}/>
                 </div>
                 <div className="new-expense__control">
