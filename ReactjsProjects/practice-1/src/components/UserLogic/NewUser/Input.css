@@ -1,0 +1,36 @@
+.inputDiv{
+    background-color: aliceblue;
+    width: 40%;
+    height: auto;    
+    border-radius: 1rem;
+    margin: 3rem;
+    margin-top: 3rem;
+}
+form{
+    padding: 1rem;
+    width: 100%;
+}
+input{
+    color: black;
+    background-color: bisque;
+    border:2px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: auto;
+    height: auto;           
+    font: inherit;
+    line-height: 1.5rem;
+    padding: 0 0.25rem;
+    display: block;
+}
+
+input:focus{
+    background-color: rgb(211, 240, 230);
+}
+
+label{
+    font-weight: bold;
+    color: black;
+    font-size: 1rem;
+    display: block;
+}

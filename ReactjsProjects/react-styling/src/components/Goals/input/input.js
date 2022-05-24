@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../../UI/Button/Button';
 import styles from './Input.module.css';
 
-/*styled-components lybrary
+/*styled-components library
 import styled from 'styled-components';
 const FormControl=styled.div`
     margin: 0.5rem;
