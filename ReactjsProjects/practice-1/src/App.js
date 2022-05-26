@@ -19,8 +19,7 @@ function App(props) {
   const AddNewUser=(userNameVal, ageVal)=>{
     let newUser={id:UserArrayStatus.length+1, username:userNameVal, age:ageVal}
     UserArray.push(newUser);
-    setUserArrayStatus(UserArray);
-    console.log(UserArrayStatus);       
+    setUserArrayStatus(UserArray);    
   }
 
   const openPopUpWin=(winTitle,winContent,winButton)=>{
@@ -37,11 +36,14 @@ function App(props) {
   return (
     <div>
       <Input userAdd={AddNewUser} onOpenPopUpWin={openPopUpWin}/>
-      <div className='frameDiv'>
-        {UserArrayStatus.length>0 ? UserArrayStatus.map((element)=>{
+      {/* {UserArrayStatus.length>0 ?  (<div className='frameDiv'>
+        {UserArrayStatus.map((element)=>{
             return (<UserList key={element.id} userName={element.username} age={element.age}/>)
-          }) :""}
-      </div>      
+          })}
+      </div>):""} */}
+      {UserArrayStatus.length>0 ?  (<div className='frameDiv'>
+        <UserList UserArrayList={UserArray}/></div>):""}
+
       {PopUpWinStatus? <PopUpWin  onClosePopUpWin={closePopUpWin} title={PopUpWinMessage.title} 
       content={PopUpWinMessage.content} buttonName={PopUpWinMessage.buttonName}/> :""}
     </div>

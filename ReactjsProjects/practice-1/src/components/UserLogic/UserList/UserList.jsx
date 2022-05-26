@@ -2,10 +2,12 @@ import React from "react";
 import "./UserList.css";
 
 const UserList=(props)=>{
-
+    console.log(props.UserArrayList[0].age);
     return(
-        <p className="frame-p">{props.userName +" ("+ props.age + " years Old)"}</p>
-     
+        props.UserArrayList.map((element)=>{
+            return (<p className="frame-p" key={element.id}>{element.username +
+                " ("+ element.age + " years Old)"}</p>)
+        })
     );
 }
 
