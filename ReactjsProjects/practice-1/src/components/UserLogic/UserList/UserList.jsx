@@ -4,9 +4,8 @@ import "./UserList.css";
 const UserList=(props)=>{
 
     return(
-        <div className="frameDiv">              
-            <p className="frame-p">{props.userName +" ("+ props.age + " years Old)"}</p>              
-        </div>
+        <p className="frame-p">{props.userName +" ("+ props.age + " years Old)"}</p>
+     
     );
 }
 

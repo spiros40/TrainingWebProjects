@@ -7,11 +7,12 @@
     border-radius: 10px;
 }
 
+
 .frame-p{
     font-size: 16px;
     font-weight: bolder;
     font-family: inherit;
     color: black;
     margin-top: 1rem;
-    border: 2px solid black;
+    border: 1px solid grey;
 }

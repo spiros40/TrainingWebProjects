@@ -11,6 +11,7 @@ const errorMessage={
 const Input=(props)=>{    
     
     const AddData=(event)=>{
+        //Throw errors
         if (event.target[0].value.trim().length===0||event.target[1].value.trim().length===0){
             errorMessage.title="Empty fields";
             errorMessage.content="you must enter username- age";
@@ -18,12 +19,13 @@ const Input=(props)=>{
             callErrorWin();
         }else if (event.target[1].value<0||event.target[1].value>100){
             errorMessage.title="Age value error";
-            errorMessage.content="you must enter corect age value 100<Age>0";
+            errorMessage.content="you must enter correct age value 100<Age>0";
             errorMessage.buttonName="Close";    
             callErrorWin();
+        }else{              
+            props.userAdd(event.target[0].value, event.target[1].value);
         }
-        // console.log(event.target[0].value);
-        // console.log(event.target[1].value);
+        
         event.preventDefault();
         //clear input old values
         event.target.reset();        

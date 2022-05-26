@@ -4,7 +4,7 @@ import Input from './components/UserLogic/NewUser/Input';
 import PopUpWin from './components/UI/PopUpWin/PopUpWin';
 import UserList from './components/UserLogic/UserList/UserList';
 
-const UserArray=[{id:1, username:"One", age:"11"},{id:2, username:"Two", age:"22"}];
+const UserArray=[];
 
 const PopUpWinMessage={
   title:"",
@@ -13,10 +13,14 @@ const PopUpWinMessage={
 };
 
 function App(props) {
-  const [PopUpWinStatus, setPopUpWinStatus] = useState(false);    
+  const [PopUpWinStatus, setPopUpWinStatus] = useState(false);
+  const [UserArrayStatus, setUserArrayStatus]=useState(UserArray);
   
-  const AddNewUser=(props)=>{
-    UserArray.push(props.data);
+  const AddNewUser=(userNameVal, ageVal)=>{
+    let newUser={id:UserArrayStatus.length+1, username:userNameVal, age:ageVal}
+    UserArray.push(newUser);
+    setUserArrayStatus(UserArray);
+    console.log(UserArrayStatus);       
   }
 
   const openPopUpWin=(winTitle,winContent,winButton)=>{
@@ -32,10 +36,12 @@ function App(props) {
 
   return (
     <div>
-      <Input userAdd={AddNewUser} onOpenPopUpWin={openPopUpWin}/>          
-      {UserArray.length>0 ? UserArray.map((element)=>{
-        return (<UserList key={element.id} userName={element.username} Age={element.age}/>)
-      }) :""}
+      <Input userAdd={AddNewUser} onOpenPopUpWin={openPopUpWin}/>
+      <div className='frameDiv'>
+        {UserArrayStatus.length>0 ? UserArrayStatus.map((element)=>{
+            return (<UserList key={element.id} userName={element.username} age={element.age}/>)
+          }) :""}
+      </div>      
       {PopUpWinStatus? <PopUpWin  onClosePopUpWin={closePopUpWin} title={PopUpWinMessage.title} 
       content={PopUpWinMessage.content} buttonName={PopUpWinMessage.buttonName}/> :""}
     </div>
