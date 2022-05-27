@@ -7,6 +7,7 @@ const UserList=(props)=>{
         props.UserArrayList.map((element)=>{
             return (<p className="frame-p" key={element.id}>{element.username +
                 " ("+ element.age + " years Old)"}</p>)
+                // or i can do it as ul
         })
     );
 }

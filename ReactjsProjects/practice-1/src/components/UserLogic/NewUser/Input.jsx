@@ -1,6 +1,7 @@
 import React from "react";
 import "./Input.css";
 import Button from "../../UI/Button/Button";
+import Card from "../../UI/Card/Card";
 
 const errorMessage={
     title:"",
@@ -10,7 +11,7 @@ const errorMessage={
 
 const Input=(props)=>{    
     
-    const AddData=(event)=>{
+    const AddDataHandler=(event)=>{
         //Throw errors
         if (event.target[0].value.trim().length===0||event.target[1].value.trim().length===0){
             errorMessage.title="Empty fields";
@@ -25,7 +26,12 @@ const Input=(props)=>{
         }else{              
             props.userAdd(event.target[0].value, event.target[1].value);
         }
-        
+        /*The preventDefault() method cancels the event if it is cancelable,
+        meaning that the default action that belongs to the event will not occur.
+        For example:
+        Clicking on a "Submit" button, prevent it from submitting a form
+        Clicking on a link, prevent the link from following the URL
+        */
         event.preventDefault();
         //clear input old values
         event.target.reset();        
@@ -36,15 +42,23 @@ const Input=(props)=>{
     }
 
     return ( 
-        <div className='inputDiv'>
-            <form onSubmit={AddData}>
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Enter your Username"/>
-                <label>Age</label>
-                <input type="number" name="age" placeholder="Enter your Age"/>
+        <Card>
+            <form onSubmit={AddDataHandler}>
+                <label htmlFor="username">Username</label>
+                <input 
+                    id="username" 
+                    type="text" 
+                    name="username" 
+                    placeholder="Enter your Username"/>
+                <label htmlFor="age">Age</label>
+                <input 
+                    id="age" 
+                    type="number" 
+                    name="age" 
+                    placeholder="Enter your Age"/>
                 <Button type="submit" name={"Add"}/>                
             </form> 
-        </div>
+        </Card>
     );
 }
 

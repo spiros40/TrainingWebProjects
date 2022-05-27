@@ -3,6 +3,7 @@ import './App.css';
 import Input from './components/UserLogic/NewUser/Input';
 import PopUpWin from './components/UI/PopUpWin/PopUpWin';
 import UserList from './components/UserLogic/UserList/UserList';
+import Card from './components/UI/Card/Card';
 
 const UserArray=[];
 
@@ -41,8 +42,9 @@ function App(props) {
             return (<UserList key={element.id} userName={element.username} age={element.age}/>)
           })}
       </div>):""} */}
-      {UserArrayStatus.length>0 ?  (<div className='frameDiv'>
-        <UserList UserArrayList={UserArray}/></div>):""}
+      {UserArrayStatus.length>0 ?  (<Card>
+        <UserList UserArrayList={UserArray}/>
+        </Card>):""}
 
       {PopUpWinStatus? <PopUpWin  onClosePopUpWin={closePopUpWin} title={PopUpWinMessage.title} 
       content={PopUpWinMessage.content} buttonName={PopUpWinMessage.buttonName}/> :""}

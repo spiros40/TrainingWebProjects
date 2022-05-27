@@ -1,0 +1,8 @@
+.cardDiv{
+    background-color: aliceblue;
+    width: 40%;
+    height: auto;    
+    padding: 2rem; 
+    margin-top: 3rem;
+    border-radius: 10px;
+}

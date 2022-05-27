@@ -2,12 +2,3 @@ html{
     background-color: black;
     align-items: center;
 }
-
-.frameDiv{
-    background-color: aliceblue;
-    width: 35%;
-    height: auto;    
-    padding: 2rem; 
-    margin-top: 3rem;
-    border-radius: 10px;
-}
