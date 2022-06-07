@@ -8,7 +8,7 @@ const Meals=()=>{
         <React.Fragment>
             <MealSummary/>
             <Card>
-                <AvailableMeals/>
+                <AvailableMeals/>                
             </Card>
         </React.Fragment>
     );

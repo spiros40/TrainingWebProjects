@@ -1,10 +1,13 @@
 import React from "react";
+import style from './MealItemForm.module.css';
+import Input from "../../UI/Input";
 
-const MealItemForm=()=>{
+const MealItemForm=(props)=>{
     return(
-        <React.Fragment>
-            
-        </React.Fragment>
+      <form className={style.form}>
+        <Input name={props.id}/>
+        <button>+ Add</button>
+      </form>        
     );
 }
 

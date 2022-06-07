@@ -6,8 +6,7 @@ const Input=(props)=>{
         <React.Fragment>
             <form className={styles.input} key={props.id}>
                 <label htmlFor={props.id}>Amount</label>
-                <input type="number" name={props.id} min="0" max="10" placeholder="0"/>
-                <button>test</button>
+                <input type="number" name={props.id} min="0" max="10" placeholder="0"/>                
             </form>
         </React.Fragment>
     );
