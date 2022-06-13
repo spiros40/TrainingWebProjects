@@ -20,6 +20,19 @@
     z-index: 30;
     animation: slide-down 300ms ease-out forwards;
   }
+  .alingItem {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+  .price {
+    margin-top: 0.25rem;
+    font-weight: bold;
+    color: #ad5502;
+    font-size: 1.25rem;
+  }
   
   @media (min-width: 768px) {
     .modal {

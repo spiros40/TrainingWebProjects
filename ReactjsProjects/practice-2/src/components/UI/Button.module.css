@@ -1,0 +1,30 @@
+.button {
+    font: inherit;
+    cursor: pointer;
+    margin-left: 1rem;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+ 
+.noBackgroundButton{
+    background-color: #f7dbd0;
+    border: 1px solid #ebb099;
+    color: black;
+}
+.withBackgroundButton{
+    background-color: #8a2b06;
+    border: 1px solid #8a2b06;
+    color: white;
+}
+ 
+  .withBackgroundButton:hover,
+  .withBackgroundButton:active {
+    background-color: #641e03;
+    border-color: #f1ad93;
+  }
+  .noBackgroundButton:hover,
+  .noBackgroundButton:active {
+    background-color: #f1ad93;
+    border-color: #641e03;
+  }
