@@ -6,7 +6,7 @@ const MealItemForm=(props)=>{
     return(
       <form className={style.form}>
         <Input name="Amount"/>
-        <button>+ Add</button>
+        <button onClick={props.onClick} type="submit">+ Add</button>
       </form>        
     );
 }

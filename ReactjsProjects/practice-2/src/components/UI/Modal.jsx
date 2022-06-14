@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from './Modal.module.css';
 import Input from "./Input";
 import ReactDom from "react-dom";
@@ -11,21 +11,28 @@ const Backdrop=()=>{
 }
 
 const ModalRoot=(props)=>{
-    const [quantity, setquantity]=useState(0);
+    const [quantity, setquantity]=useState(1);
+    const [totalPrice, settotalPrice]=useState(0);
+    const itemPrice=10;
+
+    useEffect(()=>{
+        settotalPrice(quantity*itemPrice);
+    },[quantity]);    
 
     const closeButtonPressed=(event)=>{
         props.onClick();        
     }    
     const orderButtonPressed=()=>{
-        console.log(`Your order has been send. ${quantity}`);
+        console.log(`You order ${quantity} items`);
+        console.log(`The cost is ${totalPrice}€`);
     }
     const decrease =()=>{
-        if(quantity>0){
-            setquantity(quantity-1)
+        if(quantity>1){
+            setquantity(quantity-1);            
         }
     }
     const increase=()=>{
-        setquantity(quantity+1)
+        setquantity(quantity+1);        
     }
 
     return(
@@ -33,21 +40,20 @@ const ModalRoot=(props)=>{
             <form >
                 <div className="alingItem">                    
                     <Input name='itemName'  value={quantity}/>
-                    <span className={styles.price}>$50</span>
-                    <Button name="+" ButtonStyle="noBackgroundButton" type="button"
-                        onClick={increase}/>
+                    <span className={styles.price}>&euro;{itemPrice}</span>                    
                     <Button name="-" ButtonStyle="noBackgroundButton" type="button"
                         onClick={decrease}/>
+                    <Button name="+" ButtonStyle="noBackgroundButton" type="button"
+                        onClick={increase}/>
                 </div>                
                 <hr/>
                 <div className="alingItem">
-                    <p>Total amount <span>price</span></p>                
+                    <p>Total amount <span>{totalPrice}&euro;</span></p>                
                     <Button name="Close" ButtonStyle="noBackgroundButton" type="button" 
                         onClick={closeButtonPressed}/>
                     <Button name="Order" ButtonStyle="withBackgroundButton" type="button"
                         onClick={orderButtonPressed}/>
-                </div>                
-                
+                </div>                                
             </form>
         </div>
     );
