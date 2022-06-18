@@ -1,12 +1,25 @@
-import React from "react";
+import React, {useContext} from "react";
 import MealItemForm from "./MealItemForm";
 import styles from './MealItem.module.css';
+import CartContext from "../../../store/cart-context";
+import CartProvider from "../../../store/CartProvider";
 
 const MealItem=(props)=>{
-    
-    const addItemHandler=()=>{
-        console.log("addHandler");
-    }
+
+    const cartCtx = useContext(CartContext);
+    const test=useContext(CartProvider);
+
+    const addItemHandler = amount => {
+        amount.preventDefault()
+        cartCtx.addItem({
+          id: props.id,
+          name: props.name,
+          amount: amount,
+          price: props.price
+        });
+        console.log("in context " + test);
+      };
+
     return(
         <li className={styles.meal}>
             <div>
