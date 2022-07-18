@@ -13,7 +13,7 @@ const nameInputChangeHandler=(event)=>{
 }
 
 const nameInoutBlurHandler=(event)=>{
-  enteredNameTouched(true);
+  setEnteredNameTouched(true);
   
 }
 

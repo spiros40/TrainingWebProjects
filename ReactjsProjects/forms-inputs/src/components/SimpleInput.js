@@ -1,52 +1,69 @@
-import { useRef, useState } from "react";
+
+import useInput from "../hooks/user-input";
 
 const SimpleInput = (props) => {
-const [enteredName, setEnteredName]=useState("");
-const nameInputRef=useRef();
-const [enteredNameIsValid, setEnteredNameIsValid]=useState(false);
-const [enteredNameTouched, setenteredNameTouched]=useState(false);
+  const {
+    value:enteredName,
+    isvalid:enteredNameIsValid,
+    hasError:nameInputHasError, 
+    valueChangeHandler:nameChangeHandler, 
+    inputBlurHandler:nameBlurHandler, 
+    reset:resetNameInput
+  }=useInput(value=>value.trim()!=='');//passing a function as a value to another function
+  //here the function initialized and runs inside of the hook
 
-//reads input on every change
-const nameInputChangeHandler=(event)=>{
-  setEnteredName(event.target.value);
-}
+  const {
+    value:enteredEmail,
+    isvalid:enteredEmailIsValid,
+    hasError:emailInputHasError, 
+    valueChangeHandler:emailChangeHandler, 
+    inputBlurHandler:emailBlurHandler, 
+    reset:resetEmailInput
+  }=useInput(valueEmail=>valueEmail.includes("@"));
+  
+let formIsValid=false;
 
-const nameInoutBlurHandler=(event)=>{
-  enteredNameTouched(true);
-  
-  if(enteredName.trim()!==''){
-    setEnteredNameIsValid(true);    
-  }
-  
+if(enteredNameIsValid && enteredEmailIsValid){
+  formIsValid=true;
 }
 
 const formSubmissionHandler=(event)=>{
-  event.preventDefault();
-  setenteredNameTouched(true);
-  if(enteredName.trim()===''){
-    setEnteredNameIsValid(false);
-    
+  event.preventDefault();    
+  if(!enteredNameIsValid){
+     return;
   }
-  setEnteredNameIsValid(true);
-  console.log(enteredName);
-  //reads value once
-  const enteredValue=nameInputRef.current.value;
-  console.log(enteredValue);
+  if(!enteredEmailIsValid){
+    return;
+ }
+  resetNameInput();
+  resetEmailInput();
 }
-  const nameInoutIsValid=enteredNameIsValid&&enteredNameTouched;
-  const nameInputClasses=nameInoutIsValid ? "form-control invalid": "form-control"
+
+  const nameInputClasses=nameInputHasError ? "form-control invalid": "form-control"
+  const emailInputClasses=emailInputHasError ? "form-control invalid": "form-control"
   return (
     <form onSubmit={formSubmissionHandler}>
       <div className={nameInputClasses}>
         <label htmlFor='name'>Your Name</label>
-        <input 
-          ref={nameInputRef}
+        <input         
           type='text' id='name' 
-          onChange={nameInputChangeHandler}
-          onBlur={nameInoutBlurHandler}
+          onChange={nameChangeHandler}
+          onBlur={nameBlurHandler}
         />
-        <p className="error-text">{nameInoutIsValid && "Your input is invalid"}</p>
-      </div>
+        </div>
+        <p className="error-text">
+        {nameInputHasError && "Your input is invalid"}</p>
+
+        <div className={emailInputClasses}>
+          <label htmlFor='email'>Your Email</label>
+          <input         
+            type='email' id='email' 
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
+          />
+        </div>
+        <p className="error-text">{enteredEmail && "Your email is invalid"}</p>
+      
       <div className="form-actions">
         <button>Submit</button>
       </div>
